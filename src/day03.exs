@@ -29,8 +29,8 @@ data
 defmodule Day03Part2 do
   def find_badge(values) do
     [a, b, c] = values |> Enum.map(fn x -> String.graphemes(x) |> Enum.uniq end)
-    a_in_b = a |> Enum.filter(fn x -> x in b end)
-    a_in_b |> Enum.find(fn x -> x in c end)
+    a_in_b = a |> Enum.filter(&Kernel.in(&1, b))
+    a_in_b |> Enum.find(&Kernel.in(&1, c))
   end
 end
 
