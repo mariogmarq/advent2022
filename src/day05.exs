@@ -61,3 +61,31 @@ data
 |> Enum.map(&Enum.take(&1, 1))
 |> List.to_string()
 |> IO.inspect()
+
+# Part 2, as same as Part 1 but removing the Enum.reverse :)
+defmodule Day05Part2 do
+  def process_move([stack, []]), do: stack
+
+  def process_move([stack, [move | remaining_moves]]) do
+    [num, from, to] = move
+
+    original_stack = stack |> Enum.at(from - 1)
+    crates_taken = original_stack |> Enum.take(num)
+    stack = stack |> List.replace_at(from - 1, original_stack |> Enum.drop(num))
+
+    stack =
+      stack
+      |> List.replace_at(to - 1, [crates_taken | Enum.at(stack, to - 1)] |> List.to_charlist())
+
+    process_move([stack, remaining_moves])
+  end
+end
+
+data
+|> String.split("\n\n")
+|> Day05Part1.get_crates()
+|> Day05Part1.get_moves()
+|> Day05Part2.process_move()
+|> Enum.map(&Enum.take(&1, 1))
+|> List.to_string()
+|> IO.inspect()
