@@ -23,7 +23,7 @@ data
 |> Enum.map(&Day03Part1.find_common_letters/1)
 |> Enum.map(&Day03Part1.substract/1)
 |> Enum.sum()
-|> IO.inspect()
+|> IO.puts()
 
 # Part 2
 defmodule Day03Part2 do
@@ -40,4 +40,4 @@ data
 |> Enum.map(&Day03Part2.find_badge/1)
 |> Enum.map(&Day03Part1.substract/1)
 |> Enum.sum
-|> IO.inspect()
+|> IO.puts()

@@ -11,15 +11,15 @@ defmodule Day02Part1 do
     end
   end
 
-  def winning_points([x, x]), do: [x, 3];
-  def winning_points(["A", "B"]), do: ["B", 6];
-  def winning_points(["B", "C"]), do: ["C", 6];
-  def winning_points(["C", "A"]), do: ["A", 6];
-  def winning_points([_, y]), do: [y, 0];
+  def winning_points([x, x]), do: [x, 3]
+  def winning_points(["A", "B"]), do: ["B", 6]
+  def winning_points(["B", "C"]), do: ["C", 6]
+  def winning_points(["C", "A"]), do: ["A", 6]
+  def winning_points([_, y]), do: [y, 0]
 
-  def total_points(["A", s]), do: 1+s
-  def total_points(["B", s]), do: 2+s
-  def total_points(["C", s]), do: 3+s
+  def total_points(["A", s]), do: 1 + s
+  def total_points(["B", s]), do: 2 + s
+  def total_points(["C", s]), do: 3 + s
 end
 
 data
@@ -28,7 +28,7 @@ data
 |> Enum.map(&Day02Part1.norm/1)
 |> Enum.map(fn x -> x |> Day02Part1.winning_points |> Day02Part1.total_points end)
 |> Enum.sum
-|> IO.inspect()
+|> IO.puts()
 
 # Part two
 defmodule Day02Part2 do
@@ -47,4 +47,4 @@ data
 |> Enum.map(&Day02Part2.determine_move/1)
 |> Enum.map(fn x -> x |> Day02Part1.winning_points |> Day02Part1.total_points end)
 |> Enum.sum
-|> IO.inspect()
+|> IO.puts

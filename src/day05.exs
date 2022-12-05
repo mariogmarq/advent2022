@@ -60,7 +60,7 @@ data
 |> Day05Part1.process_move()
 |> Enum.map(&Enum.take(&1, 1))
 |> List.to_string()
-|> IO.inspect()
+|> IO.puts()
 
 # Part 2, as same as Part 1 but removing the Enum.reverse :)
 defmodule Day05Part2 do
@@ -88,4 +88,4 @@ data
 |> Day05Part2.process_move()
 |> Enum.map(&Enum.take(&1, 1))
 |> List.to_string()
-|> IO.inspect()
+|> IO.puts()

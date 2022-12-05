@@ -7,7 +7,7 @@ data
 |> Enum.map(fn x -> Enum.map(x, &String.to_integer/1) end)
 |> Enum.map(&Enum.sum/1)
 |> Enum.max
-|> IO.inspect
+|> IO.puts
 
 # Part two
 data
@@ -18,4 +18,4 @@ data
 |> Enum.sort(:desc)
 |> Enum.slice(0..2)
 |> Enum.sum
-|> IO.inspect
+|> IO.puts
