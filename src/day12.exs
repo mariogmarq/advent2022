@@ -56,7 +56,7 @@ defmodule Day12Part1 do
     starting = get_a_position(grid)
     ending = get_ending_position(grid)
     grid = normalize_grid(grid)
-    Enum.map(starting, fn s ->
+    Helper.Functions.par_map(starting, fn s ->
         queue = PriorityQueue.new()
         set = MapSet.new
         solve(grid, {0, {s, 0}}, ending, queue, set)
